@@ -1,0 +1,38 @@
+#!/bin/bash
+
+src_dir=${0%/*}
+
+read -p "About to remove dotfiles symlinked from ${src_dir} to ${HOME}. Do you want to continue? [y/n] " -e response
+
+if [[ ${response} != "y" ]]
+then
+    echo "Exiting..."
+    exit 1
+fi
+
+# symlink must be a "dotfile"
+for file in ${HOME}/.*
+do
+    # File must exist
+    if [ ! -e ${file} ]
+    then
+	continue
+    fi
+
+    # File must be a symlink
+    if [ ! -h ${file} ]
+    then
+	continue
+    fi
+
+    # Only remove symlinks to the dotfiles
+    src_file=`readlink ${file}`
+    if [ ! -e ${src_dir}/${src_file} ]
+    then
+        continue
+    fi
+
+    rm ${file}
+done
+
+echo "Finished"

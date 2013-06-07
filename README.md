@@ -11,7 +11,12 @@ Fetch the git repo
 cd ~ && git clone git://github.com/dhui/dotfiles.git
 ```
 
-Install the dotfiles
+Install/update the dotfiles
 ```bash
 cd ~ && ./dotfiles/install.sh
+```
+
+Uninstall the dotfiles
+```bash
+cd ~ && ./dotfiles/uninstall.sh
 ```

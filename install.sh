@@ -1,8 +1,8 @@
 #!/bin/bash
 
-current_dir=${0%/*}
+src_dir=${0%/*}
 
-read -p "About to set the symlink dotfiles from ${current_dir} to ${HOME}. Do you want to continue? [y/n] " -e response
+read -p "About to set the symlink dotfiles from ${src_dir} to ${HOME}. Do you want to continue? [y/n] " -e response
 
 if [[ ${response} != "y" ]]
 then
@@ -10,7 +10,8 @@ then
     exit 1
 fi
 
-for file in ${current_dir}/.*
+# File must be a dotfile
+for file in ${src_dir}/.*
 do
     # File must exist
     if [ ! -e ${file} ]
@@ -19,7 +20,7 @@ do
     fi
 
     # ignore certain files
-    if [[ ${file} == "${current_dir}/." || ${file} == "${current_dir}/.." || ${file} == "${current_dir}/.git" ]]
+    if [[ ${file} == "${src_dir}/." || ${file} == "${src_dir}/.." || ${file} == "${src_dir}/.git" ]]
     then
 	continue
     fi
