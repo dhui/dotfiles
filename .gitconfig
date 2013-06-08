@@ -1,0 +1,23 @@
+[user]
+        name = Your Name
+        email = name@email.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[push]
+        default = tracking
+[merge]
+        tool = emerge
+
+[github]
+        user = username
+        token = token
+
+[alias]
+        branchd = !bash -c 'git branch -d $1 && git push origin :$1' -
+        branchdd = !bash -c 'git branch -D $1 && git push origin :$1' -
+        aliases = !git config --get-regexp 'alias\\..*' | sed -e 's/^alias\\.//' | sort
+        eunmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`"
+        pruneorigin = "!f() { git branch -a --merged | grep remotes/origin | grep -v HEAD | grep -v origin/master | grep -v origin/origin; }; for b in `f`; do git push origin :${b##remotes/origin/}; done"
+        rbs = !git rebase --ignore-date
