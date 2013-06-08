@@ -28,7 +28,8 @@ do
 
     # Only remove symlinks to the dotfiles
     src_file=`readlink ${file}`
-    if [ ! -e ${src_dir}/${src_file} ]
+    found=`expr "${src_file}" : "${src_dir}"`
+    if [ ${found} -eq 0 ]
     then
         continue
     fi
