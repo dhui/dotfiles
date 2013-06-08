@@ -55,7 +55,31 @@ alias lock='xscreensaver-command -lock'
 alias grep='grep --color=auto'
 
 # makes ls highlight directories and executables
-alias ls='ls --color=auto'
+case $OSTYPE in
+    linux*)
+        alias ls='ls --color=auto'
+        ;;
+    darwin*)
+        export CLICOLOR=1
+
+        # Other Mac OS X specific config
+
+        # Setting PATH for MacPython 2.6
+        # The orginal version is saved in .bash_profile.pysave
+        PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+        export PATH
+
+        # Setting PATH for MacPython 2.6
+        # The orginal version is saved in .bash_profile.pysave
+        PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+        export PATH
+
+        # Setting PATH for Python 2.7
+        # The orginal version is saved in .bash_profile.pysave
+        PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+        export PATH
+        ;;
+esac
 
 # makes bc preload the math libraries and sets the scale to 20
 export BC_ENV_ARGS=-l
