@@ -177,3 +177,8 @@ function initCscopeDb
     dir=`pwd | cut -f -4 -d '/'`
     cscope-indexer -r $dir
 }
+
+# Source local bash profile
+if [ -f ~/.bash_profile.local ]; then
+        . ~/.bash_profile.local
+fi
