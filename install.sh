@@ -1,6 +1,7 @@
 #!/bin/bash
 
-src_dir=${0%/*}
+# Gets the absolute path for this script
+src_dir=$( cd "$( dirname "${0}" )" && pwd )
 
 read -p "About to set the symlink dotfiles from ${src_dir} to ${HOME}. Do you want to continue? [y/n] " -e response
 
