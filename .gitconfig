@@ -1,6 +1,6 @@
-[user]
-        name = Your Name
-        email = name@email.com
+[include]
+        path = ~/.gitconfig.local
+
 [color]
         diff = auto
         status = auto
@@ -9,10 +9,6 @@
         default = tracking
 [merge]
         tool = emerge
-
-[github]
-        user = username
-        token = token
 
 [alias]
         branchd = !bash -c 'git branch -d $1 && git push origin :$1' -

@@ -1,0 +1,7 @@
+[user]
+        name = Your Name
+        email = name@email.com
+
+[github]
+        user = username
+        token = token
