@@ -78,6 +78,11 @@ case $OSTYPE in
         # The orginal version is saved in .bash_profile.pysave
         PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
         export PATH
+
+        # Setting PATH for Ruby 1.9.3
+        # The orginal version is saved in .bash_profile.pysave
+        PATH="/usr/local/Cellar/ruby/1.9.3-p362/bin:${PATH}"
+        export PATH
         ;;
 esac
 
