@@ -327,3 +327,7 @@ Key bindings:
 
 ;; go to the previous window (opposite of "C-x o"). You could also do "C-u - Cx o"
 (global-set-key (kbd "C-x O") 'previous-multiframe-window)
+
+;; Use aspell as the default spelling program
+;; Tried to use hunspell, but it didn't work out of the box...
+(setq-default ispell-program-name "aspell")
