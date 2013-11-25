@@ -174,17 +174,16 @@
 
 
 ;; Setup on the fly (as you type) syntax and style checking of Python code with Flake8 (uses PyFlakes and Pep8)
-;; (done via flymake)
-(when (load "flymake" t)
-  (defun flymake-flake8-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "flake8" (list "--max-line-length=200" local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-flake8-init)))
+(require 'flymake)
+(defun flymake-flake8-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-copy))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "flake8" (list "--max-line-length=200" local-file))))
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.py\\'" flymake-flake8-init))
 
 ; Set the Flymake highlight colors -- the default ones are impossible to read.
 (custom-set-faces
