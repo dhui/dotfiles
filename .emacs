@@ -1,5 +1,8 @@
 ;; .emacs
 
+;; Helps debug emacs lisp errors by giving a full stack trace. Needs to be at the top to catch all errors.
+(setq debug-on-error t)
+
 (add-to-list 'load-path "~/.emacs.d")
 
 ;;; uncomment this line to disable loading of "default.el" at startup
