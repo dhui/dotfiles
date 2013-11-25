@@ -23,7 +23,7 @@ export EDITOR=emacs
 # loads emacs w/ vertical windows (ie you split/cut into 2 horizontal pieces)
 alias emacsv='emacs -f split-window-horizontally'
 
-# export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # sets how much info I get when I run make
 export MAKE_OUTPUT_LEVEL=QUIET #options: NORMAL, QUIET, DEBUG, VERBOSE
