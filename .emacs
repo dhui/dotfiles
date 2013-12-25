@@ -333,3 +333,9 @@ Key bindings:
 ;; Use aspell as the default spelling program
 ;; Tried to use hunspell, but it didn't work out of the box...
 (setq-default ispell-program-name "aspell")
+
+;; Setup packages
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")) ; Added by default in emacs 24
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
