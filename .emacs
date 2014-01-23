@@ -181,7 +181,7 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "flake8" (list "--max-line-length=200" local-file))))
+    (list "flake8" (list "--ignore=E501" local-file))))  ; https://flake8.readthedocs.org/en/2.0/warnings.html#error-codes
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-flake8-init))
 
