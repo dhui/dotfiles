@@ -25,6 +25,11 @@ alias emacsv='emacs -f split-window-horizontally'
 
 export PATH=/usr/local/bin:$PATH
 
+# support go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/projects/go
+export PATH=$PATH:$GOPATH/bin
+
 # sets how much info I get when I run make
 export MAKE_OUTPUT_LEVEL=QUIET #options: NORMAL, QUIET, DEBUG, VERBOSE
 
