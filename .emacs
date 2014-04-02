@@ -239,9 +239,9 @@ Key bindings:
 (set-face-foreground 'font-lock-comment-face "red")
 
 ;; setup django template syntax highlighting
-(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
-(setq auto-mode-alist
-      (cons '("\\.html\\'" . django-html-mumamo-mode) auto-mode-alist))
+;(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
+;(setq auto-mode-alist
+;      (cons '("\\.html\\'" . django-html-mumamo-mode) auto-mode-alist))
 
 ;; Jinja2 mode for jinja2 syntax highlighting. (Doesn't support highlighting of JS in the template)
 ;(require 'jinja2-mode)
@@ -340,3 +340,10 @@ Key bindings:
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+; Force web-mode to load .html files with the Django engine
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'"))
+)
