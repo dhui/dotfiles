@@ -354,3 +354,6 @@ Key bindings:
 (setq jedi:setup-keys t)                      ; optional
 (setq jedi:complete-on-dot t)                 ; optional
 (require 'jedi)
+
+;; run go fmt before saving
+(add-hook 'before-save-hook 'gofmt-before-save)
