@@ -129,6 +129,7 @@
 
 ;; sets tabs to be "4 spaces long" (not actually using spaces)
 (setq tab-width 4)
+(setq default-tab-width 4)
 
 ;; enables column numbering
 (setq column-number-mode t)
