@@ -356,4 +356,5 @@ Key bindings:
 (require 'jedi)
 
 ;; run go fmt before saving
+(require 'go-mode-load)
 (add-hook 'before-save-hook 'gofmt-before-save)
