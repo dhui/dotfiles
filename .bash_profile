@@ -99,6 +99,14 @@ export BC_ENV_ARGS=-l
 # emacs diff mode
 alias ediff='emacs -diff'
 
+# Force Python pip to use virtualenvs
+# http://hackercodex.com/guide/python-development-environment-on-mac-osx/
+export PIP_REQUIRE_VIRTUALENV=true
+function syspip
+{
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
 # setup perforce environment
 export P4CONFIG=.p4config
 export P4EDITOR=emacs
