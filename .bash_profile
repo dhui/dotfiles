@@ -90,6 +90,10 @@ case $OSTYPE in
         # The orginal version is saved in .bash_profile.pysave
         PATH="/usr/local/Cellar/ruby/1.9.3-p362/bin:${PATH}"
         export PATH
+
+        # Setting PATH for MySQL 5.5 installed via homebrew
+        PATH="${PATH}:/usr/local/opt/mysql55/bin"
+        export PATH
         ;;
 esac
 
