@@ -3,7 +3,7 @@
 ;; Helps debug emacs lisp errors by giving a full stack trace. Needs to be at the top to catch all errors.
 (setq debug-on-error t)
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;;; uncomment this line to disable loading of "default.el" at startup
 ;; (setq inhibit-default-init t)
@@ -163,13 +163,13 @@
 (setq auto-mode-alist (cons '( "\\.tmpl\\'" . cheetah-mode ) auto-mode-alist ))
 
 ;; setup javascript mode for javascript (.js) files
-;(load "~/.emacs.d/javascript")
+;(load "~/.emacs.d/elisp/javascript")
 ;(setq auto-mode-alist
 ;      (cons '("\\.js\\'" . javascript-mode) auto-mode-alist))
-;(load "~/.emacs.d/js")
+;(load "~/.emacs.d/elisp/js")
 ;(setq auto-mode-alist
 ;      (cons '("\\.js\\'" . js-mode) auto-mode-alist))
-(load "~/.emacs.d/javascriptk")
+(load "~/.emacs.d/elisp/javascriptk")
 (setq auto-mode-alist
       (cons '("\\.js\\'" . javascript-mode) auto-mode-alist))
 
@@ -240,7 +240,7 @@ Key bindings:
 (set-face-foreground 'font-lock-comment-face "red")
 
 ;; setup django template syntax highlighting
-;(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
+;(autoload 'django-html-mumamo-mode "~/.emacs.d/elisp/nxhtml/autostart.el")
 ;(setq auto-mode-alist
 ;      (cons '("\\.html\\'" . django-html-mumamo-mode) auto-mode-alist))
 
@@ -252,8 +252,8 @@ Key bindings:
 ;; setup jinja template syntax highlighting (not working...)
 ;(require 'jinja)
 ;(autoload 'jinja-nxhtml-mumamo "jinja" "Jinja xhtml mode" t)
-;(autoload 'jinja-nxhtml-mumamo "~/.emacs.d/nxhtml/autostart.el")
-;(load "~/.emacs.d/nxhtml/autostart.el")
+;(autoload 'jinja-nxhtml-mumamo "~/.emacs.d/elisp/nxhtml/autostart.el")
+;(load "~/.emacs.d/elisp/nxhtml/autostart.el")
 ;(setq auto-mode-alist
 ;      (cons '("\\.html\\'" . jinja-nxhtml-mumamo) auto-mode-alist))
 
@@ -271,11 +271,11 @@ Key bindings:
 
 
 ;; ruby mode
-;(load "~/.emacs.d/ruby-mode")
+;(load "~/.emacs.d/elisp/ruby-mode")
 ;(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 
 ;; mako mode
-;(load "~/.emacs.d/mmm-mako.el")
+;(load "~/.emacs.d/elisp/mmm-mako.el")
 
 ;(add-to-list 'auto-mode-alist '("\\.mako\\'" . html-mode))
 ;(mmm-add-mode-ext-class 'html-mode "\\.mako\\'" 'mako)
@@ -304,7 +304,7 @@ Key bindings:
 
 
 ;; loads cscope which can find references/symbols in code
-;(load "~/.emacs.d/xcscope")
+;(load "~/.emacs.d/elisp/xcscope")
 
 ;(define-key global-map [(control f3)]  'cscope-set-initial-directory)
 ;(define-key global-map [(control f4)]  'cscope-unset-initial-directory)
@@ -320,7 +320,7 @@ Key bindings:
 ;(define-key global-map [(meta f10)] 'cscope-display-buffer-toggle)
 
 ;; setup tabs for emacs
-;(load "~/.emacs.d/tabbar")
+;(load "~/.emacs.d/elisp/tabbar")
 ;(global-set-key [(control shift tab)] 'tabbar-backward) ; doesn't work...
 ;(global-set-key [C-S-iso-lefttab] 'tabbar-backward)
 ;(global-set-key [(control tab)]       'tabbar-forward)
