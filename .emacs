@@ -41,6 +41,11 @@
 (add-to-list 'command-switch-alist '("diff" . command-line-diff))
 (add-to-list 'command-switch-alist '("-diff" . command-line-diff))
 
+(defun sort-lines-case-insensitive ()
+  (interactive)
+  (let ((sort-fold-case t))
+    (call-interactively 'sort-lines)))
+
 ;; Set to default split vertically
 (setq ediff-split-window-function 'split-window-horizontally)
 
