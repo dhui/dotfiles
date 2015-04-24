@@ -19,3 +19,4 @@
         eunmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`"
         pruneorigin = "!f() { git branch -a --merged | grep remotes/origin | grep -v HEAD | grep -v origin/master | grep -v origin/origin; }; for b in `f`; do git push origin :${b##remotes/origin/}; done"
         rbs = !git rebase --ignore-date
+        diffchar = !git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
