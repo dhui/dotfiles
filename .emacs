@@ -174,9 +174,9 @@
 ;(load "~/.emacs.d/elisp/js")
 ;(setq auto-mode-alist
 ;      (cons '("\\.js\\'" . js-mode) auto-mode-alist))
-(load "~/.emacs.d/elisp/javascriptk")
-(setq auto-mode-alist
-      (cons '("\\.js\\'" . javascript-mode) auto-mode-alist))
+;(load "~/.emacs.d/elisp/javascriptk")
+;(setq auto-mode-alist
+;      (cons '("\\.js\\'" . javascript-mode) auto-mode-alist))
 
 
 ;; Setup on the fly (as you type) syntax and style checking of Python code with Flake8 (uses PyFlakes and Pep8)
