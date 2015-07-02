@@ -353,7 +353,14 @@ Key bindings:
 ; Force web-mode to load .html files with the Django engine
 (setq web-mode-engines-alist
       '(("django"    . "\\.html\\'"))
-)
+      )
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  )
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; jedi does auto-completion for Python
 (add-hook 'python-mode-hook 'jedi:setup)
