@@ -20,3 +20,4 @@
         pruneorigin = "!f() { git branch -a --merged | grep remotes/origin | grep -v HEAD | grep -v origin/master | grep -v origin/origin; }; for b in `f`; do git push origin :${b##remotes/origin/}; done"
         rbs = !git rebase --ignore-date
         diffchar = !git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+        linesbyauthor = !sh -c 'git ls-tree -r HEAD | cut -f 2 | xargs -n1 git blame --line-porcelain | grep \"author \" | sort | uniq -c | sort -n -k 1'
