@@ -370,3 +370,5 @@ Key bindings:
 ;; run go fmt before saving
 (require 'go-mode-autoloads)
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+(require 'less-css-mode)
