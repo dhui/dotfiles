@@ -228,7 +228,7 @@ Key bindings:
   nil
   :keymap my-flymake-minor-mode-map)
 
-; (add-hook 'python-mode-hook 'my-flymake-minor-mode)
+(add-hook 'python-mode-hook 'my-flymake-minor-mode)
 ;; Make flymake work in terminal mode
 (require 'cl)
 (require 'flymake-cursor)
