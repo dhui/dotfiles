@@ -1,2 +1,3 @@
 # Ignore emacs package manager metadata
 .emacs.d/elpa/
+*.elc
