@@ -364,3 +364,13 @@ Key bindings:
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 (require 'less-css-mode)
+
+; (add-hook 'after-init-hook 'global-company-mode)
+; (require 'company)
+; (require 'company-go)
+; (add-hook 'go-mode-hook (lambda ()
+;                           (set (make-local-variable 'company-backends) '(company-go))
+;                          (company-mode)))
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
