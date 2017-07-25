@@ -52,8 +52,10 @@
 ;; =============================================================================
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(current-language-environment "UTF-8")
  '(default-input-method "rfc1345")
@@ -61,10 +63,10 @@
  '(paren-mode (quote paren) nil (paren))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
-(custom-set-faces
+;; (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
- '(default ((t (:size "12pt" :family "Fixed")))))
+;; '(default ((t (:size "12pt" :family "Fixed")))))
 
 ;; sets where the auto save files are located
 (setq auto-save-list-file-prefix "~/.emacs.saves/.saves-")
