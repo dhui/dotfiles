@@ -169,69 +169,35 @@
   )
 (setq auto-mode-alist (cons '( "\\.tmpl\\'" . cheetah-mode ) auto-mode-alist ))
 
-;; Setup on the fly (as you type) syntax and style checking of Python code with Flake8 (uses PyFlakes and Pep8)
-(require 'flymake)
-;; (defun flymake-flake8-init ()
-;;   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-;;                        'flymake-create-temp-copy))
-;;          (local-file  (file-relative-name
-;;                        temp-file
-;;                        (file-name-directory buffer-file-name))))
-;;     (list "flake8" (list "--ignore=E501" local-file))))  ; https://flake8.readthedocs.org/en/2.0/warnings.html#error-codes
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.py\\'" flymake-flake8-init))
-; (require 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(setq flymake-python-pyflakes-executable "flake8")
-(setq flymake-python-pyflakes-extra-arguments '("--ignore=E501"))
 
-; Set the Flymake highlight colors -- the default ones are impossible to read.
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flymake-errline ((((class color)) (:background "Magenta" :bold :foreground "Yellow"))))
- '(flymake-warnline ((((class color)) (:background "DarkBlue"))))
- ;; Force emacs to highlight comments
+ '(flycheck-error ((t (:inherit error :background "red" :foreground "magenta" :underline t))))
+ '(flycheck-warning ((t (:inherit warning :background "yellow" :foreground "black" :underline t))))
  '(font-lock-comment-face ((((class color) (background light)) (:foreground "red")))))
 
-;(add-hook 'find-file-hook 'flymake-find-file-hook) ; need this when jumping around
-(add-hook 'python-mode-hook 'flymake-mode)
 
-;; Make flymake work in terminal mode
-;(require 'flymake-extension)
-;(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-
-; '(flymake-extension-auto-show t)
-; '(flymake-extension-use-showtip nil)
-; '(flymake-log-level -1))
-
-(defvar my-flymake-minor-mode-map
+(defvar my-flycheck-minor-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map "\M-p" 'flymake-goto-prev-error)
-    (define-key map "\M-n" 'flymake-goto-next-error)
+    (define-key map "\M-p" 'flycheck-previous-error)
+    (define-key map "\M-n" 'flycheck-next-error)
     map)
-  "Keymap for my flymake minor mode.")
+  "Keymap for my flycheck minor mode.")
 
-(define-minor-mode my-flymake-minor-mode
+(define-minor-mode my-flycheck-minor-mode
   "Simple minor mode which adds some key bindings for moving to the next and previous errors.
 
 Key bindings:
 
-\\{my-flymake-minor-mode-map}"
+\\{my-flycheck-minor-mode-map}"
   nil
   nil
-  :keymap my-flymake-minor-mode-map)
+  :keymap my-flycheck-minor-mode-map)
 
-(add-hook 'python-mode-hook 'my-flymake-minor-mode)
-;; Make flymake work in terminal mode
-(require 'cl)
-(require 'flymake-cursor)
+(add-hook 'flycheck-mode-hook 'my-flycheck-minor-mode)
 
 ;; More forcing of emacs to highlight comments
 (set-face-foreground 'font-lock-comment-face "red")
@@ -374,3 +340,5 @@ Key bindings:
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
