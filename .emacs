@@ -60,6 +60,7 @@
  '(current-language-environment "UTF-8")
  '(default-input-method "rfc1345")
  '(global-font-lock-mode t nil (font-lock))
+ '(mmm-submode-decoration-level 0)  ;; disable submode background highlighting to improve readability
  '(paren-mode (quote paren) nil (paren))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
