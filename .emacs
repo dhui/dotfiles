@@ -309,10 +309,13 @@ Key bindings:
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist `(,(concat (file-name-as-directory (expand-file-name "~/projects/finfan")) ".*\\.js[x]?\\'") . web-mode))
 ; Force web-mode to load .html files with the Django engine
 (setq web-mode-engines-alist
       '(("django"    . "\\.html\\'"))
       )
+(setq web-mode-content-types-alist
+      `(("jsx" . ,(concat (file-name-as-directory (expand-file-name "~/projects/finfan")) ".*\\.js[x]?\\'"))))
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
