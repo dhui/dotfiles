@@ -346,3 +346,6 @@ Key bindings:
 (ac-config-default)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
