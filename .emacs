@@ -359,3 +359,6 @@ Key bindings:
 
 (require 'rjsx-mode)
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+
+;; Auto-load auto-complete-mode (minor) in rjsx-mode
+(add-to-list 'ac-modes 'rjsx-mode)
