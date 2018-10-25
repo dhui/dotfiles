@@ -69,6 +69,8 @@
    (quote
     (prettier-js markdown-mode rjsx-mode solarized-theme yaml-mode web-mode mmm-mode less-css-mode jedi go-mode go-autocomplete flycheck dockerfile-mode)))
  '(paren-mode (quote paren) nil (paren))
+ '(prettier-js-args (quote ("-s" "prettier")))
+ '(prettier-js-command "yarn")
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
 ;; (custom-set-faces
@@ -362,3 +364,7 @@ Key bindings:
 
 ;; Auto-load auto-complete-mode (minor) in rjsx-mode
 (add-to-list 'ac-modes 'rjsx-mode)
+
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
