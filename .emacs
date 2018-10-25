@@ -67,7 +67,7 @@
  '(mmm-submode-decoration-level 0)
  '(package-selected-packages
    (quote
-    (rjsx-mode solarized-theme yaml-mode web-mode mmm-mode less-css-mode jedi go-mode go-autocomplete flycheck dockerfile-mode)))
+    (prettier-js markdown-mode rjsx-mode solarized-theme yaml-mode web-mode mmm-mode less-css-mode jedi go-mode go-autocomplete flycheck dockerfile-mode)))
  '(paren-mode (quote paren) nil (paren))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
