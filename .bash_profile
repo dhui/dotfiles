@@ -205,6 +205,15 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Source bash completion for Mac OS
-# to work, need to run: brew install bash-completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# https://docs.brew.sh/Shell-Completion
+HOMEBREW_PREFIX=$(brew --prefix)
+if type brew &>/dev/null; then
+  for COMPLETION in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*
+  do
+    [[ -f $COMPLETION ]] && source "$COMPLETION"
+  done
+  if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]];
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  fi
+fi
