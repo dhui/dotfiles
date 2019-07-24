@@ -198,6 +198,24 @@ function initCscopeDb
     cscope-indexer -r $dir
 }
 
+# Creates an animated gif from the given video file using ffmpeg
+#
+# https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality
+# http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+function createAnimatedGif
+{
+    filename=$1
+    base_filename="${1%.*}"
+    palette_file="${1}.palette.png"
+    gif_filename="${base_filename}.gif"
+
+    # https://ffmpeg.org/ffmpeg-filters.html#palettegen-1
+    (set -x; ffmpeg -i "${filename}" -vf 'fps=10,palettegen=stats_mode=diff' "${palette_file}")
+
+    # https://ffmpeg.org/ffmpeg-filters.html#paletteuse
+    (set -x; ffmpeg -i "${filename}" -i "${palette_file}" -filter_complex 'fps=10,paletteuse=diff_mode=rectangle' "${gif_filename}")
+}
+
 # Source local bash profile
 if [ -f ~/.bash_profile.local ]; then
         . ~/.bash_profile.local
