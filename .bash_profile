@@ -106,6 +106,10 @@ function syspip
 {
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
+function syspip3
+{
+    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+}
 
 # setup perforce environment
 export P4CONFIG=.p4config
