@@ -25,6 +25,11 @@ alias emacsv='emacs -f split-window-horizontally'
 
 export PATH=/usr/local/bin:$PATH
 
+# Add python user site path
+# From: `python -m site --user-base` or `python3 -m site --user-base`
+# See: https://docs.python.org/3/library/site.html#site.USER_BASE
+export PATH=$HOME/.local/bin:$PATH
+
 # support go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/projects/go
