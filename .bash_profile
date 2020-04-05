@@ -228,8 +228,8 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # https://docs.brew.sh/Shell-Completion
-HOMEBREW_PREFIX=$(brew --prefix)
 if type brew &>/dev/null; then
+    HOMEBREW_PREFIX=$(brew --prefix)
     if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]]; then
         source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
     else
