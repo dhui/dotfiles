@@ -80,7 +80,7 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'cl)); Some handy macros.
+  (require 'cl-lib)); Some handy macros.
 
 ;;; WS Trim tools
 
