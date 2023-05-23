@@ -21,3 +21,8 @@
         rbs = !git rebase --ignore-date
         diffchar = !git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
         linesbyauthor = !sh -c 'git ls-tree -r HEAD | cut -f 2 | xargs -n1 git blame --line-porcelain | grep \"author \" | sort | uniq -c | sort -n -k 1'
+
+        # Delete squash-merged local branches
+        # https://stackoverflow.com/questions/43489303/how-can-i-delete-all-git-branches-which-have-been-squash-and-merge-via-github
+        # https://github.com/not-an-aardvark/git-delete-squashed
+        delsquashmerged = "!git checkout -q master && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\\^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done"
