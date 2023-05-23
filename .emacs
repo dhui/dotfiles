@@ -59,17 +59,15 @@
  '(case-fold-search t)
  '(current-language-environment "UTF-8")
  '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+   '("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default))
  '(default-input-method "rfc1345")
  '(global-font-lock-mode t nil (font-lock))
  '(js-indent-level 2)
  '(mmm-submode-decoration-level 0)
  '(package-selected-packages
-   (quote
-    (prettier-js markdown-mode rjsx-mode solarized-theme yaml-mode web-mode mmm-mode less-css-mode jedi go-mode go-autocomplete flycheck dockerfile-mode)))
- '(paren-mode (quote paren) nil (paren))
- '(prettier-js-args (quote ("-s" "prettier")))
+   '(graphql-mode flycheck jedi thrift prettier-js markdown-mode rjsx-mode solarized-theme yaml-mode web-mode mmm-mode less-css-mode go-mode go-autocomplete dockerfile-mode))
+ '(paren-mode 'paren nil (paren))
+ '(prettier-js-args '("-s" "prettier"))
  '(prettier-js-command "yarn")
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
@@ -146,7 +144,7 @@
 
 ;; sets tabs to be "4 spaces long" (not actually using spaces)
 (setq tab-width 4)
-(setq default-tab-width 4)
+(setq-default tab-width 4)
 
 ;; enables column numbering
 (setq column-number-mode t)
@@ -368,3 +366,6 @@ Key bindings:
 (require 'prettier-js)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
+
+(require 'thrift)
+(add-to-list 'auto-mode-alist '("\\.air$" . thrift-mode) t)
