@@ -26,3 +26,20 @@
         # https://stackoverflow.com/questions/43489303/how-can-i-delete-all-git-branches-which-have-been-squash-and-merge-via-github
         # https://github.com/not-an-aardvark/git-delete-squashed
         delsquashmerged = "!git checkout -q master && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\\^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done"
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[merge]
+        # (just 'diff3' if git version < 2.3)
+        conflictstyle = zdiff3
